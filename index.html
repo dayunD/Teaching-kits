@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수업 기자재 체크리스트</title>
+
+    <!-- Google Fonts 링크 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+        
+    <style>
+
+        /* 스타일 시트 */
+        body {
+            font-family: 'Nanum Gothic';
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Nanum Gothic';
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        .checkbox-input {
+            margin-right: 30px;
+        }
+
+        .number-input {
+            width: 40px;
+            text-align: center;
+        }
+        .number-input,.material-count-input {
+        width: 30px; /* 입력 칸 너비를 줄임 */
+        text-align: center;
+}
+
+        .transparent-input {
+            border: none;
+            background: transparent;
+            width: 200px;
+            /* 조정 가능한 너비 */
+            border-bottom: 1px solid #ccc;
+            /* 밑줄 추가 */
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        .transparent-input:focus {
+            outline: none;
+        }
+
+        .red-text {
+            color: red;
+        }
+
+        button {
+            font-family: 'Nanum Gothic';
+            padding: 10px 20px;
+            background-color: #5F5F5F;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #37C696;
+     
+        }
+
+        /* 하이라이트 스타일 */
+        .highlight {
+        background-color: yellow;
+        font-weight: bold;
+        }
+
+
+        .material-memo-input {
+            width : 50px
+        }
+        .school-name {
+            font-size: 32pt;  /* 글씨 크기를 크게 설정 */
+            font-weight: bold;
+            margin-bottom: 20px;
+}
+    </style>
+</head>
+<body>
+    <h1>수업 기자재 체크리스트</h1>
+    <!-- 입력 폼 -->
+    <form id="classForm">
+        <!-- 각 과목과 개수 입력 -->
+        <input type="checkbox" name="class1" value="①신소재"> ①신소재
+        <input type="number" name="count1" min="1" value="1" class="number-input" ><br>
+        <input type="checkbox" name="class2" value="②반도체"> ②반도체
+        <input type="number" name="count2" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class3" value="③의공학"> ③의공학
+        <input type="number" name="count3" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class4" value="④스마트팜"> ④스마트팜
+        <input type="number" name="count4" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class5" value="⑤신재생에너지"> ⑤신재생에너지
+        <input type="number" name="count5" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class6" value="⑥반가워 머신러닝"> ⑥반가워 머신러닝
+        <input type="number" name="count6" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class7" value="⑦똑똑한 상상이룸"> ⑦똑똑한 상상이룸
+        <input type="number" name="count7" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class8" value="⑧인공지능 딥러닝"> ⑧인공지능 딥러닝
+        <input type="number" name="count8" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class9" value="⑨프롬프트 엔지니어"> ⑨프롬프트 엔지니어
+        <input type="number" name="count9" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class10" value="⑩디지털 리터러시"> ⑩디지털 리터러시
+        <input type="number" name="count10" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class11" value="⑪빅데이터 경제"> ⑪빅데이터 경제
+        <input type="number" name="count11" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class12" value="⑫빅데이터 분석"> ⑫빅데이터 분석
+        <input type="number" name="count12" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class13" value="⑬메타버스"> ⑬메타버스
+        <input type="number" name="count13" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class14" value="⑭VR 프로그램 개발"> ⑭VR 프로그램 개발
+        <input type="number" name="count14" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class15" value="⑮AR 개발"> ⑮AR 개발
+        <input type="number" name="count15" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class16" value="⑯콘텐츠 기획"> ⑯콘텐츠 기획
+        <input type="number" name="count16" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class17" value="⑰1인 미디어"> ⑰1인 미디어
+        <input type="number" name="count17" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class18" value="⑱게임 개발"> ⑱게임 개발
+        <input type="number" name="count18" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class19" value="⑲앱 개발"> ⑲앱 개발
+        <input type="number" name="count19" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class20" value="⑳시뮬레이션"> ⑳시뮬레이션
+        <input type="number" name="count20" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class21" value="㉑메이커"> ㉑메이커
+        <input type="number" name="count21" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class22" value="㉒기업브랜딩(로고제작)"> ㉒기업브랜딩(로고제작)
+        <input type="number" name="count22" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class23" value="㉓애니메이터"> ㉓애니메이터
+        <input type="number" name="count23" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class24" value="㉔시각 디자인"> ㉔시각 디자인
+        <input type="number" name="count24" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class25" value="㉕3D 설계 모델링"> ㉕3D 설계 모델링
+        <input type="number" name="count25" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class26" value="㉖로봇"> ㉖로봇
+        <input type="number" name="count26" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class27" value="㉗디지털 헬스"> ㉗디지털 헬스
+        <input type="number" name="count27" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class28" value="㉘자율주행"> ㉘자율주행
+        <input type="number" name="count28" min="1" value="1" class="number-input"><br>
+        <input type="checkbox" name="class29" value="㉙모빌리티"> ㉙모빌리티
+        <input type="number" name="count29" min="1" value="1" class="number-input"><br><br>
+        
+        <!-- 학교명 입력 필드 -->
+        <input type="text" name="schoolName" placeholder="학교명 입력" class="transparent-input"><br>
+        
+        <!-- 선택한 과목 확인 버튼 -->
+        <button type="button" onclick="showSelectedMaterials()">선택한 과목 확인</button><br><br>
+        
+    </form>
+    <!-- 선택한 과목 리스트 표시 -->
+    <div id="selectedMaterialsList"></div>
+
+    <!-- 자바스크립트 코드 -->
+    <script>
+        // JavaScript 코드
+        function showSelectedMaterials() {
+            // 선택한 과목 리스트 표시하는 함수
+            var selectedMaterialsListDiv = document.getElementById("selectedMaterialsList");
+            var selectedClasses = document.querySelectorAll('input[name^="class"]:checked');
+            var counts = document.querySelectorAll('input[name^="count"]');
+            var schoolName = document.querySelector('input[name="schoolName"]').value;
+            //var html = schoolName;
+            //var html = `<div class="school-name">${schoolName}</div>`;
+            var html = `<div class="school-name" style="font-size: 24pt; font-weight: bold;">${schoolName}</div>`;
+
+            var html = "";
+            if (schoolName.trim() !== "") {
+                html += `<div class="school-name">${schoolName}</div>`;
+            }
+
+            selectedClasses.forEach(function (checkbox) {
+                var className = checkbox.value;
+                var countInput = checkbox.nextElementSibling; // 체크박스 다음에 있는 입력 필드를 가져옴
+                var count = countInput.value; // 개수를 입력 필드에서 가져옴
+                var materials = getMaterialsForClass(className);
+                html += "<p>" + className + " : ";
+                materials.forEach(function (material, i) {
+                    if (i !== 0) {
+                        html += ", ";
+                    }
+                    html += material;
+                });
+                        // 메모 입력란에서 해당 과목에 대한 메모를 가져오기
+                 var memoInput = document.querySelector(`.material-memo-input[data-class='${className}']`);
+                    var memo = memoInput ? memoInput.value : "";
+                    if (memo.trim() !== "") {
+                        html += `<br><strong>인원:</strong> ${memo}`;
+                }
+                html += " <span class='red-text'>" + "(" + count + "개반)</span></p>";
+            });
+
+
+            html += '<button onclick="printSelectedMaterials()">인쇄</button>';
+            selectedMaterialsListDiv.innerHTML = html;
+        }
+
+        function printSelectedMaterials() {
+            // 기존 선택된 내용의 HTML을 복사
+            const selectedMaterialsListDiv = document.getElementById("selectedMaterialsList");
+            let printHTML = selectedMaterialsListDiv.cloneNode(true);
+
+                // 학교명과 과목 목록에 인라인 스타일로 글자 크기 적용
+    printHTML.querySelectorAll('.school-name').forEach(element => {
+        element.style.fontSize = '24pt';
+        element.style.fontWeight = 'bold';
+    });
+            // 추가 입력 필드와 메모 입력란을 텍스트로 변환
+            printHTML.querySelectorAll('.material-count-input').forEach(input => {
+                const value = input.value;
+                const textNode = document.createTextNode(value);
+                input.replaceWith(textNode);
+            });
+
+            printHTML.querySelectorAll('.material-memo-input').forEach(input => {
+                const value = input.value;
+                const textNode = document.createTextNode(value);
+                input.replaceWith(textNode);
+            });
+
+            // 새 창을 열어서 인쇄
+            const printWindow = window.open('', '', 'height=600,width=800');
+            printWindow.document.write('<html><head><title>수업 기자재 체크리스트</title>');
+            printWindow.document.write('<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">');
+            printWindow.document.write('<style>');
+            printWindow.document.write(`
+                body {
+                font-family: 'Nanum Gothic', sans-serif;
+                line-height: 1.6;
+                padding: 20px;
+                }
+                .red-text { color: red; }
+                .highlight { background-color: yellow; font-weight: bold; }
+            `);
+            printWindow.document.write('</style></head><body>');
+            printWindow.document.write(printHTML.innerHTML);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+
+
+        function getMaterialsForClass(className) {
+            // 각 과목에 대한 재료를 반환하는 함수
+            switch (className) {
+                case "①신소재":
+                    return ["<span class='highlight'>계획서</span>",
+                    "배치 우드락 8", "나무판", "키트(수수깡, 글루건, 테이프, 이면지, 가위/칼, 선풍기8, 풍량측정기16)", "멀티탭","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "②반도체":
+                    return ["태블릿 <input type='number' min='1' value='1' class='material-count-input' data-item='태블릿'>", "터치펜","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "③의공학":
+                    return ["노트북 <input type='number' min='1' value='1' class='material-count-input' data-item='노트북'>", "충전기/마우스", "멀티탭", "의공학키트  <input type='number' min='1' value='1' class='material-count-input' data-item='키트'>", "거짓말탐지기", "패치", "케이블(신형-암수, 구형-암수, 수수)", "건전지","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "④스마트팜":
+                    return ["스마트팜용 유킷 <input type='number' min='1' value='1' class='material-count-input' data-item='노트북'>", "기물", "실습 휴대폰 <input type='number' min='1' value='1' class='material-count-input' data-item='실습 휴대폰'>","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "⑤신재생에너지":
+                    return ["레고브릭", "바퀴", "솔라브릭(태양광판/usb선풍기)", "할로겐등", "절연테이프","색테이프","네임펜","글루건 1개","멀티탭","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "⑥반가워 머신러닝":
+                    return ["컴퓨터실(웹캠, 포스트잇) <b>or</b> 노트북  <input type='number' min='1' value='1' class='material-count-input' data-item='노트북'>", "충전기/마우스", "멀티탭", "포스트잇","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "⑦똑똑한 상상이룸":
+                    return ["<span class='highlight'>계획서</span>", "웹캠", "노트북  <input type='number' min='1' value='1' class='material-count-input' data-item='노트북'>", "충전기/마우스", "멀티탭", "아두이노똑상키트<input type='number' min='1' value='1' class='material-count-input' data-item='키트'>", "4교시 시 수수깡/우드락/글루건","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "⑧인공지능 딥러닝":
+                    return ["태블릿  <input type='number' min='1' value='1' class='material-count-input' data-item='태블릿'>","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "⑨프롬프트 엔지니어":
+                    return ["컴퓨터실 <b>or</b> 노트북  <input type='number' min='1' value='1' class='material-count-input' data-item='노트북'>", "충전기/마우스", "멀티탭","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "⑩디지털 리터러시":
+                    return ["노트북 <b>or</b> 태블릿 <input type='number' min='1' value='1' class='material-count-input' data-item='노트북'>", "충전기/마우스", "멀티탭","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "⑪빅데이터 경제":
+                    return ["<span class='highlight'>주식 유인물</span>", "모자", "물티슈", "보드마카","이름표 <b>or</b> 포스트잇","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "⑫빅데이터 분석":
+                    return ["컴퓨터실 <b>or</b> 태블릿  <input type='number' min='1' value='1' class='material-count-input' data-item='태블릿'> <b>or</b> 노트북  <input type='number' min='1' value='1' class='material-count-input' data-item='노트북'>", "충전기/마우스", "멀티탭","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "⑬메타버스":
+                    return ["머지큐브 박스","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "⑭VR 프로그램 개발":
+                    return ["카드보드 갈색 | 파랑 <input type='number' min='1' value='1' class='material-count-input' data-item='카드보드'>", "돌돌이 테이프","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "⑮AR 개발":
+                    return ["머지큐브","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "⑯콘텐츠 기획":
+                    return ["<span class='highlight'>콘티</span>","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "⑰1인 미디어":
+                    return ["<span class='highlight'>콘티</span>", "과자", "크로마키4","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "⑱게임 개발":
+                    return ["컴퓨터실 <b>or</b> 노트북 <input type='number' min='1' value='1' class='material-count-input' data-item='노트북'>", "충전기/마우스", "멀티탭","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "⑲앱 개발":
+                    return ["컴퓨터실 <b>or</b> 노트북 <input type='number' min='1' value='1' class='material-count-input' data-item='노트북'>", "충전기/마우스", "멀티탭 <b>or</b> 태블릿 <input type='number' min='1' value='1' class='material-count-input' data-item='태블릿'>","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "⑳시뮬레이션":
+                    return ["컴퓨터실 <b>or</b> 노트북 <input type='number' min='1' value='1' class='material-count-input' data-item='노트북'>", "충전기/마우스", "멀티탭","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "㉑메이커":
+                    return ["노트북 <input type='number' min='1' value='1' class='material-count-input' data-item='노트북'>", "충전기/마우스", "멀티탭", "수수깡", "글루건", "아두이노rgb키트 <input type='number' min='1' value='1' class='material-count-input' data-item='키트'>","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "㉒기업브랜딩(로고제작)":
+                    return ["<span class='highlight'>유인물</span>", "로고프린터<input type='number' min='1' value='1' class='material-count-input' data-item='로고프린터'>" , "SELPHY폰", "멀티탭", "터치펜", "태블릿  <input type='number' min='1' value='1' class='material-count-input' data-item='태블릿'>","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "㉓애니메이터":
+                    return ["<span class='highlight'>스토리보드</span>", "터치펜", "태블릿 <input type='number' min='1' value='1' class='material-count-input' data-item='태블릿'>","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "㉔시각 디자인":
+                    return ["<span class='highlight'>정보전달유인물</span>", "터치펜", "태블릿 <input type='number' min='1' value='1' class='material-count-input' data-item='태블릿'>","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "㉕3D 설계 모델링":
+                    return ["3d펜 <input type='number' min='1' value='1' class='material-count-input' data-item='3d펜'>", "3d펜 충전기&케이블", "도안  <input type='number' min='1' value='1' class='material-count-input' data-item='도안'>", "필라멘트", "장갑","멀티탭", "<b>or</b> 팅커캐드: 컴퓨터실 사용","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "㉖로봇":
+                    return ["유킷 <input type='number' min='1' value='1' class='material-count-input' data-item='유킷'>", "유킷 박스<input type='number' min='1' value='1' class='material-count-input' data-item='통'>", "배틀맵2", "실습 휴대폰  <input type='number' min='1' value='1' class='material-count-input' data-item='휴대폰'>","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "㉗디지털 헬스":
+                    return ["노트북 <input type='number' min='1' value='1' class='material-count-input' data-item='노트북'>", "충전기/마우스", "멀티탭", "디지털헬스키트 <input type='number' min='1' value='1' class='material-count-input' data-item='키트'>", "케이블","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "㉘자율주행":
+                    return ["네오봇 <input type='number' min='1' value='1' class='material-count-input' data-item='네오봇'>", "유킷 박스(빨강)<input type='number' min='1' value='1' class='material-count-input' data-item='통'>", "라인맵8", "건전지", "젠더","<b>인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                case "㉙모빌리티":
+                    return ["네오봇 <input type='number' min='1' value='1' class='material-count-input' data-item='네오봇'>", "유킷 박스(빨강)<input type='number' min='1' value='1' class='material-count-input' data-item='통'>", "노트북 <input type='number' min='1' value='1' class='material-count-input' data-item='노트북'>", "충전기/마우스", "멀티탭", "라인트레이서맵","<b >인원: </b><input type='text' class='material-memo-input' data-class='①신소재' placeholder='입력'>"];
+                default:
+                    return [];
+            }
+        }
+    </script>
+</body>
+
+</html>
