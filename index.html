@@ -240,26 +240,24 @@
             }
             @media (max-width: 600px) {
                 h1 {
-                    font-size: 22px;
-                    padding: 15px;
+                    font-size: clamp(16px, 5vw, 22px);
+                    padding: 10px;
                 }
             
-                .form-header,
-                .material-item {
-                    flex-wrap: wrap; /* ✅ 모바일에서 자동 줄바꿈 */
+                .input-field, 
+                .number-input, 
+                .material-item span {
+                    font-size: 12px;
                 }
             
-                .input-field {
-                    min-width: auto;
-                    width: 100%; /* ✅ 입력 필드 너비 자동 조절 */
+                .level-input label {
+                    font-size: 12px;
                 }
             
                 button {
-                    width: 100%;
                     font-size: 14px;
                 }
             }
-
         }
     </style>
     
