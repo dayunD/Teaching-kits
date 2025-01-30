@@ -238,7 +238,28 @@
                 font-weight: bold !important; /* 굵게 표시 */
                 font-size: 14px !important; /* 글자 크기 */
             }
+            @media (max-width: 600px) {
+                h1 {
+                    font-size: 22px;
+                    padding: 15px;
+                }
             
+                .form-header,
+                .material-item {
+                    flex-wrap: wrap; /* ✅ 모바일에서 자동 줄바꿈 */
+                }
+            
+                .input-field {
+                    min-width: auto;
+                    width: 100%; /* ✅ 입력 필드 너비 자동 조절 */
+                }
+            
+                button {
+                    width: 100%;
+                    font-size: 14px;
+                }
+            }
+
         }
     </style>
     
