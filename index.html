@@ -33,9 +33,14 @@
     
         .form-header {
             display: flex;
-            align-items: center;
-            gap: 15px; /* 입력 필드 간의 간격 */
-            margin-bottom: 20px;
+            align-items: center; /* 수평 정렬 */
+            gap: 20px; /* 입력 필드와 버튼 간의 간격 */
+        }
+
+        .form-header button {
+            align-self: center; /* 버튼을 입력 필드와 같은 높이로 정렬 */
+            margin-top: 18px; /* 버튼을 약간 아래로 이동 */
+            padding: 8px 15px; /* 버튼 크기 조정 */
         }
 
         .input-field {
@@ -75,7 +80,7 @@
 
         .material-item span {
             display: inline-block; /* 블록 요소처럼 동작 */
-            width: 160px; /* 과목명 너비 고정 */
+            width: 250px; /* 과목명 너비 고정 */
             text-align: left; /* 텍스트 왼쪽 정렬 */
         }
     
@@ -203,7 +208,39 @@
         font-weight: bold; /* 굵게 */
         padding: 3px 6px; /* 내부 여백 */
         border-radius: 5px; /* 모서리 둥글게 */
-    }
+        }
+
+        h3 {
+            font-size: 16px; /* 제목 크기 */
+            margin-bottom: 5px; /* 제목과 항목 간 간격 */
+        }
+
+        .category-container {
+                padding: 8px 10px; /* 내부 여백 조정 (위아래, 양옆) */
+                margin-bottom: 18px; /* 섹션 간 간격 */
+                border-radius: 10px; /* 둥근 모서리 */
+                box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+        /* 분야별 색상 지정 */
+        .category-new-industry { background-color: #F0F8FF; } /* 신산업 (연한 파랑) */
+        .category-ai { background-color: #EAF9E1; } /* AI (연한 초록) */
+        .category-digital-literacy { background-color: #FFFBE6; } /* 디지털 리터러시 (레몬옐로우) */
+        .category-immersive-content { background-color: #FFEDED; } /* 실감 콘텐츠 (연한 핑크) */
+        .category-content { background-color: #F5EBFF; } /* 콘텐츠 (연한 보라) */
+        .category-sw { background-color: #FAF4E6; } /* SW (연한 베이지) */
+        .category-maker { background-color: #E8FFFC; } /* 메이커 (민트) */
+        .category-physical-computing { background-color: #e7e4e4; } /* 피지컬 컴퓨팅 (라이트그레이) */
+        .category-management { background-color: #FFEFE5; } /* 경영 (살구구) */
+
+        /* 버튼 배치 정렬 */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
 
         /* 인쇄 시에도 스타일 적용 */
         @media print {
@@ -238,35 +275,16 @@
                 font-weight: bold !important; /* 굵게 표시 */
                 font-size: 14px !important; /* 글자 크기 */
             }
-            @media (max-width: 600px) {
-                h1 {
-                    font-size: clamp(16px, 5vw, 22px);
-                    padding: 10px;
-                }
             
-                .input-field, 
-                .number-input, 
-                .material-item span {
-                    font-size: 12px;
-                }
-            
-                .level-input label {
-                    font-size: 12px;
-                }
-            
-                button {
-                    font-size: 14px;
-                }
-            }
         }
     </style>
     
 </head>
 
 <body>
-    <h1>📋 수업 기자재 체크리스트 🏫</h1>
+    <h1>📋 교구 체크리스트 🏫</h1>
     <form id="classForm">
-        <!-- 학교명과 차시 입력 -->
+        <!-- "전체 선택" 버튼을 입력 폼 옆에 배치 -->
         <div class="form-header">
             <input type="text" name="schoolName" placeholder="학교명 입력" class="input-field">
             <div class="input-group">
@@ -281,21 +299,25 @@
                 <input type="number" name="totalStudents" id="totalStudents" min="1" placeholder="인원" class="input-field">
                 <span>명</span>
             </div>
+            <button type="button" onclick="toggleAllClasses()">과목 전체 선택</button>
         </div>
-        
 
+        
+        <!-- 신산업 분야 -->
+        <div class="category-container category-new-industry">
+            <h3>🚀 신산업</h3>
         <div class="material-item">
-            <input type="checkbox" id="class-1" name="class1" value="①신소재"> <span>①신소재</span>
+            <input type="checkbox" id="class-1" name="class1" value="① 신소재(메타물질)"> <span>① 신소재(메타물질)</span>
             <input type="number" name="count1" min="1" value="1" class="number-input">
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-2" name="class2" value="②반도체"> <span>②반도체</span>
+            <input type="checkbox" id="class-2" name="class2" value="② 반도체"> <span>② 반도체</span>
             <input type="number" name="count2" min="1" value="1" class="number-input">
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-3" name="class3" value="③의공학"> <span>③의공학</span>
+            <input type="checkbox" id="class-3" name="class3" value="③ 의공학"> <span>③ 의공학</span>
             <input type="number" name="count3" min="1" value="1" class="number-input">
             <!-- ✅ 기존 radio → checkbox로 변경하여 다중 선택 가능하게 변경 -->
             <label class="level-input"><input type="checkbox" name="level3" value="기본교구" onclick="autoCheck('class-3')"> 기본교구</label>
@@ -304,17 +326,21 @@
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-4" name="class4" value="④스마트팜"> <span>④스마트팜</span>
+            <input type="checkbox" id="class-4" name="class4" value="④ 스마트팩토리"> <span>④ 스마트팩토리</span>
             <input type="number" name="count4" min="1" value="1" class="number-input">
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-5" name="class5" value="⑤신재생에너지"> <span>⑤신재생에너지</span>
+            <input type="checkbox" id="class-5" name="class5" value="⑤ 신재생에너지"> <span>⑤ 신재생에너지</span>
             <input type="number" name="count5" min="1" value="1" class="number-input">
         </div>
+    </div>
 
+        <!-- AI 분야 -->
+        <div class="category-container category-ai">
+            <h3>🤖 AI</h3>
         <div class="material-item">
-            <input type="checkbox" id="class-6" name="class6" value="⑥반가워 머신러닝"> <span>⑥반가워 머신러닝</span>
+            <input type="checkbox" id="class-6" name="class6" value="⑥ 반가워 머신러닝"> <span>⑥ 반가워 머신러닝</span>
             <input type="number" name="count6" min="1" value="1" class="number-input">
             <label class="level-input"><input type="checkbox" name="level6" value="컴퓨터실" onclick="autoCheck('class-6')"> 컴퓨터실</label>
             <label class="level-input"><input type="checkbox" name="level6" value="노트북" onclick="autoCheck('class-6')"> 노트북</label>
@@ -322,7 +348,7 @@
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-7" name="class7" value="⑦똑똑한 상상이룸"> <span>⑦똑똑한 상상이룸</span>
+            <input type="checkbox" id="class-7" name="class7" value="⑦ 똑똑한 상상이룸"> <span>⑦ 똑똑한 상상이룸</span>
             <input type="number" name="count7" min="1" value="1" class="number-input">
             <!-- ✅ 기존 radio → checkbox로 변경하여 다중 선택 가능하게 변경 -->
             <label class="level-input"><input type="checkbox" name="level7" value="기본교구" onclick="autoCheck('class-7')"> 기본교구</label>
@@ -330,43 +356,63 @@
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-8" name="class8" value="⑧인공지능 딥러닝"> <span>⑧인공지능 딥러닝</span>
+            <input type="checkbox" id="class-8" name="class8" value="⑧ 인공지능 딥러닝"> <span>⑧ 인공지능 딥러닝</span>
             <input type="number" name="count8" min="1" value="1" class="number-input">
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-9" name="class9" value="⑨프롬프트 엔지니어"> <span>⑨프롬프트 엔지니어</span>
+            <input type="checkbox" id="class-9" name="class9" value="⑨ 프롬프트 엔지니어"> <span>⑨ 프롬프트 엔지니어</span>
             <input type="number" name="count9" min="1" value="1" class="number-input">
-            <label class="level-input"><input type="radio" name="device9" value="컴푸터실" onclick="autoCheck('class-9')"> 컴퓨터실</label>
-            <label class="level-input"><input type="radio" name="device9" value="교실" onclick="autoCheck('class-9')"> 교실</label>
+            <label class="level-input"><input type="radio" name="device9" value="컴퓨터실" onclick="autoCheck('class-9')"> 컴퓨터실</label>
+            <label class="level-input"><input type="radio" name="device" value="교실" onclick="autoCheck('class-9')"> 교실</label>
+        </div>
+    </div>
+
+        <!-- 디지털 리터러시 분야 -->
+        <div class="category-container category-digital-literacy">
+            <h3>📱 디지털 리터러시</h3>
+
+        <div class="material-item">
+            <input type="checkbox" id="class-31" name="class31" value="⑩ 디지털기기 활용"> <span>⑩ 디지털기기 활용</span>
+            <input type="number" name="count31" min="1" value="1" class="number-input">
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-10" name="class10" value="⑩디지털 리터러시"> <span>⑩디지털 리터러시</span>
+            <input type="checkbox" id="class-10" name="class10" value="⑪ 디지털 리터러시"> <span>⑪ 디지털 리터러시</span>
             <input type="number" name="count10" min="1" value="1" class="number-input">
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-11" name="class11" value="⑪빅데이터 경제"> <span>⑪빅데이터 경제</span>
+            <input type="checkbox" id="class-11" name="class11" value="⑫ 빅데이터 경제"> <span>⑫ 빅데이터 경제</span>
             <input type="number" name="count11" min="1" value="1" class="number-input">
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-12" name="class12" value="⑫빅데이터 분석"> <span>⑫빅데이터 분석</span>
+            <input type="checkbox" id="class-12" name="class12" value="⑬ 빅데이터 분석"> <span>⑬ 빅데이터 분석</span>
             <input type="number" name="count12" min="1" value="1" class="number-input">
             <label class="level-input"><input type="radio" name="level12" value="컴퓨터실" onclick="autoCheck('class-12')"> 컴퓨터실</label>
             <label class="level-input"><input type="radio" name="level12" value="교실" onclick="autoCheck('class-12')"> 교실</label>
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-13" name="class13" value="⑬메타버스"> <span>⑬메타버스</span>
+            <input type="checkbox" id="class-31" name="class31" value="⑭ 정보보안"> <span>⑭ 정보보안</span>
+            <input type="number" name="count31" min="1" value="1" class="number-input">
+        </div>
+    </div>
+
+        <!-- 실감 콘텐츠 분야 -->
+        <div class="category-container category-immersive-content">
+            <h3>🎥 실감 콘텐츠</h3>
+
+        <div class="material-item">
+            <input type="checkbox" id="class-13" name="class13" value="⑮ 메타버스"> <span>⑮ 메타버스</span>
             <input type="number" name="count13" min="1" value="1" class="number-input">
             <label class="level-input"><input type="radio" name="level13" value="초등" onclick="autoCheck('class-13')"> 초등</label>
             <label class="level-input"><input type="radio" name="level13" value="중고등" onclick="autoCheck('class-13')"> 중고등</label>
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-14" name="class14" value="⑭VR 프로그램 개발"> <span>⑭VR 프로그램 개발</span>
+            <input type="checkbox" id="class-14" name="class14" value="⑯ VR"> <span>⑯ VR</span>
             <input type="number" name="count14" min="1" value="1" class="number-input">
             <label class="level-input"><input type="checkbox" name="level14" value="갈색 VR" onclick="autoCheck('class-14')"> 갈색 VR</label>
             <label class="level-input"><input type="checkbox" name="level14" value="파랑 VR" onclick="autoCheck('class-14')"> 파랑 VR</label>
@@ -374,47 +420,62 @@
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-15" name="class15" value="⑮AR 개발"> <span>⑮AR 개발</span>
+            <input type="checkbox" id="class-15" name="class15" value="⑰ AR"> <span>⑰ AR</span>
             <input type="number" name="count15" min="1" value="1" class="number-input">
         </div>
+    </div>
+
+        <!-- 콘텐츠 분야 -->
+        <div class="category-container category-content">
+            <h3>🎨 콘텐츠</h3>
 
         <div class="material-item">
-            <input type="checkbox" id="class-16" name="class16" value="⑯콘텐츠 기획"> <span>⑯콘텐츠 기획</span>
+            <input type="checkbox" id="class-16" name="class16" value="⑱ 콘텐츠 기획"> <span>⑱ 콘텐츠 기획</span>
             <input type="number" name="count16" min="1" value="1" class="number-input">
             <label class="level-input"><input type="checkbox" name="level16" value="기본교구" onclick="autoCheck('class-16')"> 기본교구</label>
             <label class="level-input"><input type="checkbox" name="level16" value="추가" onclick="autoCheck('class-16')"> 추가</label>
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-17" name="class17" value="⑰1인 미디어"> <span>⑰1인 미디어</span>
+            <input type="checkbox" id="class-17" name="class17" value="⑲ 크리에이티브 광고 기획"> <span>⑲ 크리에이티브 광고 기획</span>
             <input type="number" name="count17" min="1" value="1" class="number-input">
-            <label class="level-input"><input type="radio" name="level17" value="영상더빙" onclick="autoCheck('class-17')"> 영상더빙</label>
+            <label class="level-input"><input type="radio" name="level17" value="음향더빙" onclick="autoCheck('class-17')"> 음향더빙</label>
             <label class="level-input"><input type="radio" name="level17" value="과자광고" onclick="autoCheck('class-17')"> 과자광고</label>
         </div>
+    </div>
+
+        <!-- SW 분야 -->
+        <div class="category-container category-sw">
+            <h3>💻 SW</h3>
 
         <div class="material-item">
-            <input type="checkbox" id="class-18" name="class18" value="⑱게임 기획"> <span>⑱게임 기획</span>
+            <input type="checkbox" id="class-18" name="class18" value="⑳ 게임 기획"> <span>⑳ 게임 기획</span>
             <input type="number" name="count18" min="1" value="1" class="number-input">
             <label class="level-input"><input type="radio" name="level18" value="컴퓨터실" onclick="autoCheck('class-18')"> 컴퓨터실</label>
             <label class="level-input"><input type="radio" name="level18" value="교실" onclick="autoCheck('class-18')"> 교실</label>
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-19" name="class19" value="⑲앱 개발"> <span>⑲앱 개발</span>
+            <input type="checkbox" id="class-19" name="class19" value="㉑ 앱 개발"> <span>㉑ 앱 개발</span>
             <input type="number" name="count19" min="1" value="1" class="number-input">
             <label class="level-input"><input type="radio" name="level19" value="컴퓨터실" onclick="autoCheck('class-19')"> 컴퓨터실</label>
             <label class="level-input"><input type="radio" name="level19" value="교실" onclick="autoCheck('class-19')"> 교실</label>
          </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-20" name="class20" value="⑳시뮬레이션"> <span>⑳시뮬레이션</span>
+            <input type="checkbox" id="class-20" name="class20" value="㉒ 시뮬레이션"> <span>㉒ 시뮬레이션</span>
             <input type="number" name="count20" min="1" value="1" class="number-input">
             <label class="level-input"><input type="radio" name="level20" value="컴퓨터실" onclick="autoCheck('class-20')"> 컴퓨터실</label>
             <label class="level-input"><input type="radio" name="level20" value="교실" onclick="autoCheck('class-20')"> 교실</label>
         </div>
+    </div>
         
+        <!-- 메이커 분야 -->
+        <div class="category-container category-maker">
+            <h3>✏️ 메이커</h3>
+
         <div class="material-item">
-            <input type="checkbox" id="class-21" name="class21" value="㉑메이커"> <span>㉑메이커</span>
+            <input type="checkbox" id="class-21" name="class21" value="㉓ 메이커"> <span>㉓ 메이커</span>
             <input type="number" name="count21" min="1" value="1" class="number-input">
             <!-- ✅ 기존 radio → checkbox로 변경하여 다중 선택 가능하게 변경 -->
             <label class="level-input"><input type="checkbox" name="level21" value="기본교구" onclick="autoCheck('class-21')"> 기본교구</label>
@@ -423,36 +484,41 @@
 
 
         <div class="material-item">
-            <input type="checkbox" id="class-22" name="class22" value="㉒로고 디자인"> <span>㉒로고 디자인</span>
+            <input type="checkbox" id="class-22" name="class22" value="㉔ 로고 디자인"> <span>㉔ 로고 디자인</span>
             <input type="number" name="count22" min="1" value="1" class="number-input">
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-23" name="class23" value="㉓애니메이터"> <span>㉓애니메이터</span>
+            <input type="checkbox" id="class-23" name="class23" value="㉕ 애니메이터"> <span>㉕ 애니메이터</span>
             <input type="number" name="count23" min="1" value="1" class="number-input">
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-24" name="class24" value="㉔시각디자인"> <span>㉔시각디자인</span>
+            <input type="checkbox" id="class-24" name="class24" value="㉖ 시각디자인"> <span>㉖ 시각디자인</span>
             <input type="number" name="count24" min="1" value="1" class="number-input">
             <label class="level-input"><input type="radio" name="level24" value="Quiver" onclick="autoCheck('class-24')"> Quiver</label>
             <label class="level-input"><input type="radio" name="level24" value="AI 캐릭터" onclick="autoCheck('class-24')"> AI 캐릭터 </label>
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-25" name="class25" value="㉕산공 디자인"> <span>㉕산공 디자인</span>
+            <input type="checkbox" id="class-25" name="class25" value="㉗ 유니버셜 디자인"> <span>㉗ 유니버셜 디자인</span>
             <input type="number" name="count25" min="1" value="1" class="number-input">
         </div>
         
         <div class="material-item">
-            <input type="checkbox" id="class-26" name="class26" value="㉖3D설계 모델링"> <span>㉖3D설계 모델링</span>
+            <input type="checkbox" id="class-26" name="class26" value="㉘ 3D설계 모델링"> <span>㉘ 3D설계 모델링</span>
             <input type="number" name="count26" min="1" value="1" class="number-input">
             <label class="level-input"><input type="radio" name="level26" value="3D펜" onclick="autoCheck('class-26')"> 3D펜</label>
             <label class="level-input"><input type="radio" name="level26" value="팅커캐드" onclick="autoCheck('class-26')"> 팅커캐드</label>
         </div>
+    </div>
+
+        <!-- 피지컬 컴퓨팅 분야 -->
+        <div class="category-container category-physical-computing">
+            <h3>🤖 피지컬 컴퓨팅</h3>
 
         <div class="material-item">
-            <input type="checkbox" id="class-27" name="class27" value="㉗로봇"> <span>㉗로봇</span>
+            <input type="checkbox" id="class-27" name="class27" value="㉙ 로봇"> <span>㉙ 로봇</span>
             <input type="number" name="count27" min="1" value="1" class="number-input">
             <label class="level-input"><input type="checkbox" name="level27" value="유킷" onclick="autoCheck('class-27')"> 유킷</label>
             <label class="level-input"><input type="checkbox" name="level27" value="지무" onclick="autoCheck('class-27')"> 지무</label>
@@ -460,55 +526,61 @@
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-28" name="class28" value="㉘디지털 헬스"> <span>㉘디지털 헬스</span>
+            <input type="checkbox" id="class-28" name="class28" value="㉚ 디지털 헬스"> <span>㉚ 디지털 헬스</span>
             <input type="number" name="count28" min="1" value="1" class="number-input">
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-29" name="class29" value="㉙자율주행"> <span>㉙자율주행</span>
+            <input type="checkbox" id="class-29" name="class29" value="㉛ 자율주행"> <span>㉛ 자율주행</span>
             <input type="number" name="count29" min="1" value="1" class="number-input">
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-30" name="class30" value="㉚모빌리티"> <span>㉚모빌리티</span>
+            <input type="checkbox" id="class-30" name="class30" value="㉜ 모빌리티"> <span>㉜ 모빌리티</span>
             <input type="number" name="count30" min="1" value="1" class="number-input">
             <label class="level-input"><input type="radio" name="level30" value="모빌리티" onclick="autoCheck('class-30')"> 모빌리티</label>
             <label class="level-input"><input type="radio" name="level30" value="네오봇" onclick="autoCheck('class-30')"> 네오봇</label>
         </div>
+    </div>
+        
+    
+        <!--경영 분야 -->
+        <div class="category-container category-management">
+            <h3>💼 기업가 정신</h3>
 
         <div class="material-item">
-            <input type="checkbox" id="class-31" name="class31" value="㉛ 정보보안"> <span>㉛ 정보보안</span>
-            <input type="number" name="count31" min="1" value="1" class="number-input">
-        </div>
-        
-        <div class="material-item">
-            <input type="checkbox" id="class-32" name="class32" value="㉜ 경제전략"> <span>㉜ 경제전략</span>
+            <input type="checkbox" id="class-32" name="class32" value="㉝ 스타트업 설계"> <span>㉝ 스타트업 설계</span>
             <input type="number" name="count32" min="1" value="1" class="number-input">
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-33" name="class33" value="㉝ 마케팅"> <span>㉝ 마케팅</span>
+            <input type="checkbox" id="class-33" name="class33" value="㉞ IMC(통합마케팅커뮤니케이션)"> <span>㉞ IMC(통합마케팅커뮤니케이션)</span>
             <input type="number" name="count33" min="1" value="1" class="number-input">
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-34" name="class34" value="㉞ 창업"> <span>㉞ 창업</span>
+            <input type="checkbox" id="class-34" name="class34" value="㉟ 경제 전략"> <span>㉟ 경제 전략</span>
             <input type="number" name="count34" min="1" value="1" class="number-input">
         </div>
+    </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-35" name="class35" value="㉟"> <span>㉟</span>
+            <input type="checkbox" id="class-35" name="class35" value="㉝㉞㉟"> <span>㉝㉞㉟</span>
             <input type="number" name="count35" min="1" value="1" class="number-input">
         </div>
 
         <div class="material-item">
-            <input type="checkbox" id="class-36" name="class36" value="*교구"> <span>*교구</span>
+            <input type="checkbox" id="class-36" name="class36" value="교구"> <span>교구</span>
             <label class="level-input"><input type="checkbox" name="level36" value="카트" onclick="autoCheck('class-36')"> 카트</label>
             <label class="level-input"><input type="checkbox" name="level36" value="휴대폰" onclick="autoCheck('class-36')"> 휴대폰</label>
             <label class="level-input"><input type="checkbox" name="level36" value="현수막" onclick="autoCheck('class-36')"> 현수막</label>
-        </div>
+        </div><br>
 
-
+        <!-- 메모 입력 -->
+        <div class="memo-container">
+            <label for="memo">📝 메모:</label><br>
+            <textarea id="memo" name="memo" rows="4" placeholder="여기에 메모를 입력하세요..." style="width: 98%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); font-family: 'Nanum Gothic', sans-serif; resize: vertical;"></textarea>
+        </div><br>
 
 
         <!-- 선택한 과목 확인 버튼 -->
@@ -523,18 +595,18 @@
 
         function getMaterialsForClass(className, level = null, device = null) {
             const materials = {
-                "①신소재": [
+                "① 신소재(메타물질)": [
                     { name: "우드락판", ratio: 4, requiresQuantity: true }, // 4명당 1개의 교구 | 필요한 교구 수 = (총 학생 수 × 반 개수) ÷ ratio
                     { name: ["키트(나무판, 수수깡, 글루건, 이면지, 가위, 풍량측정기)"], ratio: null, requiresQuantity: true },
                     { name: ["선풍기","보조배터리", "멀티탭"] },
                     ],
 
-                "②반도체": [
+                "② 반도체": [
                         { name: "태블릿", ratio: 1, requiresQuantity: true },
                         { name: ["터치펜"] },
                     ],
                 
-                "③의공학": {
+                "③ 의공학": {
                     "기본교구": [
                         { name: "노트북", ratio: 2, requiresQuantity: true }, 
                         { name: ["충전기·마우스", "멀티탭", "패치", "케이블", "건전지"] },
@@ -548,19 +620,19 @@
                     ]
                 },
 
-                "④스마트팜": [
+                "④ 스마트팩토리": [
                         { name: "스마트팜용 유킷", ratio: 1, requiresQuantity: true },
                         { name: ["기물"] },
                         { name: "실습 휴대폰", ratio: 1, requiresQuantity: true },
                     ],
 
-                "⑤신재생에너지": [
+                "⑤ 신재생에너지": [
                         { name: ["레고브릭", "바퀴", "할로겐등"] },
                         { name: "태양광판+USB선풍기", ratio: 1, requiresQuantity: true },
                         { name: ["절연테이프", "색테이프", "네임펜", "글루건", "멀티탭"] },
                     ],    
 
-                "⑥반가워 머신러닝": {
+                "⑥ 반가워 머신러닝": {
                     "컴퓨터실": [
                         { name: ["컴퓨터실 사용: 웹캠"], ratio: 1, requiresQuantity: true }, 
                         { name: ["포스트잇"] },
@@ -575,7 +647,7 @@
                     ]
                 },
 
-                "⑦똑똑한 상상이룸": {
+                "⑦ 똑똑한 상상이룸": {
                     "기본교구": [
                         { name: "노트북", ratio: 2, requiresQuantity: true }, 
                         { name: ["충전기·마우스", "멀티탭", "웹캠"] },
@@ -587,12 +659,12 @@
                     ]
                 },
 
-                "⑧인공지능 딥러닝": [
+                "⑧ 인공지능 딥러닝": [
                         { name: "태블릿", ratio: 1, requiresQuantity: true },
                         { name: ["터치펜"] },
                     ],
 
-                "⑨프롬프트 엔지니어": {
+                "⑨ 프롬프트 엔지니어": {
                     "컴퓨터실": [
                         { name: ["컴퓨터실 사용"] }, 
                     ],
@@ -602,18 +674,23 @@
                     ],
                 },
 
-                "⑩디지털 리터러시": [
+                "⑩ 디지털기기 활용": [
+                        { name: "노트북", ratio: 1, requiresQuantity: true }, 
+                        { name: ["충전기·마우스", "멀티탭", "웹캠"] },
+                    ],
+
+                "⑪ 디지털 리터러시": [
                         { name: "유인물", ratio: 4, requiresQuantity: true },
                         { name: "태블릿", ratio: 1, requiresQuantity: true },
                         { name: ["터치펜"] },
                     ],
 
-                "⑪빅데이터 경제": [
+                "⑫ 빅데이터 경제": [
                         { name: "유인물", ratio: 4, requiresQuantity: true },
                         { name: ["포스트잇"] },
                     ],
 
-                "⑫빅데이터 분석": {
+                "⑬ 빅데이터 분석": {
                     "컴퓨터실": [
                         { name: ["컴퓨터실 사용"] }, 
                     ],
@@ -624,7 +701,13 @@
                     ],
                 },
 
-                "⑬메타버스": {
+            
+                "⑭ 정보보안": [
+                        { name: "금고", ratio: 4, requiresQuantity: true },
+                    ],
+
+
+                "⑮ 메타버스": {
                     "초등": [
                         { name: ["포스트잇"] },
                     ],
@@ -634,7 +717,7 @@
                     ]
                 },
 
-                "⑭VR 프로그램 개발": {
+                "⑯ VR": {
                     "갈색 VR": [
                         { name: "갈색 VR", ratio: 1, requiresQuantity: true },
                         { name: ["돌돌이 테이프"] },
@@ -648,11 +731,11 @@
                     ]
                 },
 
-                "⑮AR 개발": [
+                "⑰ AR": [
                         { name: "머지큐브", ratio: 1, requiresQuantity: true },
                     ],
                     
-                "⑯콘텐츠 기획": {
+                "⑱ 콘텐츠 기획": {
                     "기본교구": [
                         { name: "유인물", ratio: 4, requiresQuantity: true }, 
                     ],
@@ -661,8 +744,8 @@
                     ]
                 },  
 
-                "⑰1인 미디어": {
-                    "영상더빙": [
+                "⑲ 크리에이티브 광고 기획": {
+                    "음향더빙": [
                         { name: "실습 휴대폰", ratio: 1, requiresQuantity: true },
                     ],
 
@@ -673,7 +756,7 @@
                     ]
                 },
 
-                "⑱게임 기획": {
+                "⑳ 게임 기획": {
                     "컴퓨터실": [
                         { name: ["컴퓨터실 사용"] }, 
                     ],
@@ -684,7 +767,7 @@
                     ],
                 },
 
-                "⑲앱 개발": {
+                "㉑ 앱 개발": {
                     "컴퓨터실": [
                         { name: ["컴퓨터실 사용: 실습 휴대폰"], ratio: 1, requiresQuantity: true },
                     ],
@@ -696,7 +779,7 @@
                     ],
                 },
 
-                "⑳시뮬레이션": {
+                "㉒ 시뮬레이션": {
                     "컴퓨터실": [
                         { name: ["컴퓨터실 사용"] }, 
                     ],
@@ -706,7 +789,7 @@
                     ],
                 },
 
-                "㉑메이커": {
+                "㉓ 메이커": {
                     "기본교구": [
                         { name: "노트북", ratio: 2, requiresQuantity: true }, 
                         { name: ["충전기·마우스", "멀티탭"] },
@@ -720,19 +803,19 @@
                     ]
                 },
 
-                "㉒로고 디자인": [
+                "㉔ 로고 디자인": [
                         { name: "태블릿", ratio: 1, requiresQuantity: true },
-                        { name: "유인물", requiresQuantity: true, ratio: 3 }, // 반 개수×3
+                        { name: "유인물", quantity: true, ratio: 1 }, // 반 개수×3
                         { name: "포토 프린터", requiresQuantity: true, fixedQuantity: 4 }, // 고정 수량: 4
                         { name: ["카트리지", "SELPY폰", "보조배터리","터치펜", "멀티탭"] },
                     ],                
 
-                "㉓애니메이터": [
+                "㉕ 애니메이터": [
                         { name: "태블릿", ratio: 1, requiresQuantity: true },
                         { name: ["터치펜"] },
                     ],
 
-                "㉔시각디자인": {
+                "㉖ 시각디자인": {
                     "Quiver": [
                         { name: "유인물", ratio: 1, requiresQuantity: true },
                         { name: "실습 휴대폰", ratio: 1, requiresQuantity: true },
@@ -744,17 +827,17 @@
                     ]       
                 },
 
-                "㉕산공 디자인": [
+                "㉗ 유니버셜 디자인": [
                         { name: "태블릿", ratio: 1, requiresQuantity: true },
-                        { name: "유인물", requiresQuantity: true, ratio: 3 }, // 반 개수×3
+                        { name: "유인물", requiresQuantity: true, ratio: 1 }, // 반 개수×3
                         { name: ["터치펜"] },
                     ],
 
-                "㉖3D설계 모델링": {
+                "㉘ 3D설계 모델링": {
                     "3D펜": [
                         { name: "3D펜", ratio: 1, requiresQuantity: true }, 
                         { name: ["어댑터·케이블", "멀티탭", "도안", "가위", "장갑"] },
-                        { name: ["필라멘트"], requiresQuantity: true, ratio: 4 } // 반 개수×4
+                        { name: ["필라멘트"], Quantity: true, ratio: 4 } // 반 개수×4
                     ],
                     "팅커캐드": [
                         { name: "노트북", ratio: 2, requiresQuantity: true }, 
@@ -762,7 +845,7 @@
                     ]
                 },
 
-                "㉗로봇": {
+                "㉙ 로봇": {
                     "유킷": [
                         { name: "유킷", ratio: 1, requiresQuantity: true }, 
                         { name: ["유킷 박스"], ratio: 4, requiresQuantity: true },
@@ -781,13 +864,13 @@
                     ]
                 },
 
-                "㉘디지털 헬스": [
+                "㉚ 디지털 헬스": [
                         { name: "측정장비키트", ratio: 4, requiresQuantity: true },
                         { name: "유인물", ratio: 2, requiresQuantity: true },
                     ],
 
 
-                "㉙자율주행": {
+                "㉛ 자율주행": {
                     "유킷": [
                         { name: "유킷", ratio: 1, requiresQuantity: true }, 
                         { name: ["유킷 박스"], ratio: 4, requiresQuantity: true },
@@ -806,7 +889,7 @@
                     ]
                 },
 
-                "㉚모빌리티": {
+                "㉜ 모빌리티": {
                     "모빌리티": [
                         { name: "모빌리티", ratio: 2, requiresQuantity: true }, 
                         { name: ["노트북"], ratio: 2, requiresQuantity: true },
@@ -821,42 +904,26 @@
                         { name: ["충전기·마우스", "멀티탭", "라인트레이서맵", "건전지", "젠더"] },
                     ]
                 },
-
-                "㉛ 정보보안": [
-                        { name: "금고", ratio: 4, requiresQuantity: true },
-                    ],
-
-                "㉜ 경제전략": [
-                        { name: "?", ratio: 4, requiresQuantity: true },
-                    ],
-
-                "㉝ 마케팅": [
-                        { name: "유인물", ratio: 4, requiresQuantity: true },
-                        { name: "태블릿", ratio: 1, requiresQuantity: true },
-                        { name: ["터치펜"] },
-                    ],
-
-                "㉞ 창업": [
+                "㉝ 스타트업 설계": [
                         { name: "노트북", ratio: 1, requiresQuantity: true },
                         { name: ["충전기·마우스", "멀티탭"] },
                         { name: ["or 태블릿"], ratio: 1, requiresQuantity: true },
                     ],
 
-                "㉟": [
+                "㉞ IMC 통합마케팅커뮤니케이션": [
+                        { name: "유인물", ratio: 4, requiresQuantity: true },
+                        { name: "태블릿", ratio: 1, requiresQuantity: true },
+                        { name: ["터치펜"] },
+                    ],
+                    
+                "㉟ 경제전략": [
                         { name: "?", ratio: 4, requiresQuantity: true },
                     ],
 
-                "*교구": {
-                    "카트": [
-                        { name: "카트", requiresQuantity: true }, 
+                "㉝㉞㉟": [
+                        { name: "?", ratio: 4, requiresQuantity: true },
                     ],
-                    "휴대폰": [
-                        { name: "휴대폰", requiresQuantity: true }, 
-                    ],
-                    "현수막": [
-                        { name: "현수막", requiresQuantity: true }, 
-                    ]
-                },
+
 
 
 
@@ -889,19 +956,77 @@
                 checkbox.checked = true;
             }
         }
+        function toggleAllClasses() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][name^="class"]');
+            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = !allChecked;
+
+                // ✅ 해당 과목에 포함된 추가 버튼 중 첫 번째 것을 자동 체크
+                const classNumber = checkbox.name.replace(/[^0-9]/g, ''); // 숫자 추출
+                const firstLevelCheckbox = document.querySelector(`input[name="level${classNumber}"], input[name="device${classNumber}"]`);
+                
+                if (firstLevelCheckbox) {
+                    firstLevelCheckbox.checked = !allChecked;
+                }
+            });
+        }
+
+        function updateProgramCount() {
+            const selectedClasses = Array.from(document.querySelectorAll('input[name^="class"]:checked'));
+            const schoolName = document.querySelector('input[name="schoolName"]').value.trim();
+            const lessonCount = parseInt(document.querySelector('input[name="lessonCount"]').value.trim()) || 2;
+            const totalStudents = parseInt(document.getElementById("totalStudents").value.trim()) || 0;
+
+            const programCountDiv = document.getElementById("programCount");
+            const programCount = selectedClasses.length;
+
+            programCountDiv.innerHTML = `
+                ${schoolName ? `<strong>${schoolName}</strong>, ` : ""}
+                ${lessonCount}차시 
+                ${totalStudents ? `(${totalStudents}명)` : ""} - 
+                프로그램 총 <strong>${programCount}개</strong> 선택됨.
+            `;
+        }
+
+        // 모든 체크박스에 이벤트 리스너 추가
+        document.querySelectorAll('input[name^="class"]').forEach(checkbox => {
+            checkbox.addEventListener('change', updateProgramCount);
+        });
+
+        // 초기 로드 시에도 업데이트
+        updateProgramCount();
+
 
         function showSelectedMaterials() {
             const selectedMaterialsListDiv = document.getElementById("selectedMaterialsList");
             const schoolName = document.querySelector('input[name="schoolName"]').value.trim();
-            const lessonCount = document.querySelector('input[name="lessonCount"]').value.trim();
-            const lessonFrequency = document.querySelector('input[name="lessonFrequency"]').value.trim();
+            const lessonCount = parseInt(document.querySelector('input[name="lessonCount"]').value.trim()) || 2; // 기본 2차시
+            const lessonFrequency = parseInt(document.querySelector('input[name="lessonFrequency"]').value.trim()) || 1;
             const totalStudents = parseInt(document.getElementById("totalStudents").value.trim()) || 0;
-            let selectedClasses = Array.from(document.querySelectorAll('input[name^="class"]:checked'));
+            const selectedClasses = Array.from(document.querySelectorAll('input[name^="class"]:checked'));
 
-            let html = `<div class="school-name">${schoolName || "학교 이름 없음"} 
-                        ${lessonCount ? `${lessonCount}차시` : ""} 
-                        ${lessonFrequency ? `(${lessonFrequency}회)` : ""} 
-                        ${totalStudents ? ` - ${totalStudents}명` : ""}</div>`;
+            // ✅ 반 개수를 고려한 총 프로그램 개수 계산
+            let totalPrograms = selectedClasses.reduce((sum, checkbox) => {
+                const classNumber = checkbox.name.replace(/[^0-9]/g, '');
+                const countInput = document.querySelector(`input[name="count${classNumber}"]`);
+                return sum + (parseInt(countInput?.value) || 1); // ✅ 반 개수만큼 프로그램 개수 증가
+            }, 0);
+
+            // ✅ 선택한 과목 정보 HTML 생성 (학교명, 차시, 인원 밑에 프로그램 개수 추가)
+            let html = `<div class="school-name">
+                            ${schoolName || "학교 이름 없음"}  
+                            ${lessonCount}차시 (${lessonFrequency}회)
+                            ${totalStudents ? ` - ${totalStudents}명` : ""}
+                        </div>
+                        <div style="font-size: 14px; color: #555; margin-bottom: 5px;">
+                            프로그램 총 <strong>${totalPrograms}개</strong> 선택
+                        </div>`;
+                    
+
+            // ✅ 결과를 표시하는 요소에 삽입
+            selectedMaterialsListDiv.innerHTML = html;
 
             selectedClasses.forEach((checkbox) => {
                 let className = checkbox.value.trim();
@@ -913,12 +1038,6 @@
                                     .map(input => input.value);
                 const device = document.querySelector(`input[name="device${classNumber}"]:checked`)?.value || null;
 
-                console.log("✔ 선택한 과목명:", className);
-                console.log("✔ 선택된 레벨:", levels);
-                console.log("✔ 선택된 기기:", device);
-                console.log("✔ 선택된 반 개수:", count);
-                console.log("✔ 총 학생 수:", totalStudents);
-
                 let materials = [];
                 if (levels.length > 0) {
                     levels.forEach(level => {
@@ -926,11 +1045,6 @@
                     });
                 } else {
                     materials = getMaterialsForClass(className, null, device) || [];
-                }
-
-                console.log("✔ 교구 데이터:", materials);
-                if (!materials.length) {
-                    console.warn(`🚨 '${className}' 과목에 대한 교구 정보가 없습니다.`);
                 }
 
                 html += `<div>${className} <span class="highlight-text">(${count}개반)</span> - 인원: `;
@@ -945,20 +1059,53 @@
                     materials.forEach((material, index) => {
                         let quantity = "-";
 
+                        // ✅ 횟수(`lessonFrequency`) 증가 반영 대상
+                        let isConsumable = [
+                            "갈색 VR", "파랑 VR", "홀로그램", // VR
+                            "머지큐브", // AR
+                            "필라멘트", // 3D펜
+                            "포토 프린터 카트리지", "과자박스",// 프린터 소모품
+                            "유인물" // 유인물도 횟수에 따라 증가
+                        ].includes(material.name);
+
                         if (material.fixedQuantity !== undefined) {
-                            // ✅ 개수가 반 개수와 관계없이 **고정된 경우**
-                            quantity = material.fixedQuantity;
+                            quantity = material.fixedQuantity; // ✅ 고정 수량인 경우
                         } else if (material.ratio) {
-                            // ✅ 반 개수 & 학생 수에 따라 변하는 경우 (반 개수 포함)
-                            quantity = Math.ceil((totalStudents * count) / material.ratio);
+                            quantity = Math.ceil((totalStudents * count) / material.ratio); // ✅ ratio 기준 계산
                         } else if (material.requiresQuantity) {
                             if (Array.isArray(material.name) && material.name.includes("유인물")) {
-                                // ✅ **유인물: 1개반당 3부 → 반 개수만큼 3배 증가**
-                                quantity = count * 3;
+                                if (["㉔ 로고 디자인", "㉗ 유니버셜 디자인"].includes(className)) {
+                                    // ✅ 기본적으로 1차시 1회, 2차시 1회 모두 3장
+                                    quantity = 3;
+
+                                    // ✅ 반 개수(count)만큼 곱해줌
+                                    quantity *= count;
+
+                                    // ✅ 2회 이상 진행 시 2배 증가
+                                    if (lessonFrequency > 1) {
+                                        quantity *= lessonFrequency / 2; // 🔥 2회일 때만 2배 적용
+                                    }
+                                } else if (["㉖ 시각디자인 (Quiver)"].includes(className)) {
+                                    quantity = count * lessonFrequency;
+                                } else if (["㉚ 디지털 헬스"].includes(className)) {
+                                    quantity = count * 2 * lessonFrequency;
+                                } else {
+                                    quantity = Math.ceil((totalStudents * count) / 4) * lessonFrequency;
+                                }
+                            } else if (className === "교구") {
+                                quantity = count; // ✅ 교구 항목도 반 개수 적용
+                            } else if (className === "① 신소재" && Array.isArray(material.name) && material.name.some(name => name.includes("키트"))) {
+                                quantity = count; // ✅ 신소재 키트는 횟수 영향 없이 반 개수(count)만큼 증가
                             } else {
-                                // ✅ 반 개수와 동일한 개수 적용
-                                quantity = count;
+                                quantity = count * lessonFrequency; // ✅ 기본적으로 반 개수 × 횟수 적용
                             }
+                        }
+ 
+
+
+                        // ✅ 횟수(`lessonFrequency`) 증가 반영 (소모품만 * 횟수)
+                        if (isConsumable) {
+                            quantity *= lessonFrequency;
                         }
 
                         const materialName = Array.isArray(material.name)
@@ -985,6 +1132,7 @@
 
         function printSelectedMaterials() {
             const selectedMaterialsListDiv = document.getElementById("selectedMaterialsList");
+            const memo = document.getElementById("memo")?.value.trim(); // 메모 내용을 가져옴
             
             if (!selectedMaterialsListDiv || selectedMaterialsListDiv.innerHTML.trim() === "") {
                 alert("출력할 내용이 없습니다. 먼저 과목을 선택하세요.");
@@ -998,7 +1146,15 @@
                 const value = input.value || "-";
                 input.replaceWith(document.createTextNode(value));
             });
-
+            
+            // ✅ 메모 내용을 추가 (새로운 스타일 적용)
+            if (memo) {
+                const memoDiv = document.createElement("div");
+                memoDiv.className = "memo-container"; // 추가된 스타일 적용
+                memoDiv.innerHTML = `<strong>📝 확인:</strong> ${memo}`;
+                clonedDiv.appendChild(memoDiv);
+            }
+        
             // 인쇄 창 생성
             const printWindow = window.open("", "", "height=600,width=800");
             printWindow.document.write("<html><head><title>수업 기자재 체크리스트</title>");
@@ -1020,6 +1176,17 @@
                     }
                     .materials {
                         margin-left: 15px;
+                    }
+                    .memo-container {
+                        padding: 10px;
+                        border-radius: 5px;
+                        font-size: 18px;
+                        font-weight: bold;                        
+                        color: #333; /* 기본 메모 텍스트 색상 */
+                    }
+                    .memo-container strong {
+                        font-weight: bold;
+                        color: #007BFF; /* 🔵 파란색 강조 */
                     }
                 </style>
             `);
